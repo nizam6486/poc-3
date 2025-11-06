@@ -38,10 +38,10 @@ resource "aws_security_group" "rds" {
 resource "aws_db_instance" "itop" {
   identifier = "${var.cluster_name}-mysql"
 
-  allocated_storage    = 20
+  allocated_storage     = 20
   max_allocated_storage = 100
-  storage_type         = "gp2"
-  storage_encrypted    = true
+  storage_type      = "gp2"
+  storage_encrypted = true
 
   engine         = "mysql"
   engine_version = "8.0"
@@ -55,8 +55,8 @@ resource "aws_db_instance" "itop" {
   db_subnet_group_name   = aws_db_subnet_group.itop.name
 
   backup_retention_period = 7
-  backup_window          = "07:00-09:00"
-  maintenance_window     = "sun:09:00-sun:10:00"
+  backup_window           = "07:00-09:00"
+  maintenance_window      = "sun:09:00-sun:10:00"
 
   skip_final_snapshot = true
   deletion_protection = false

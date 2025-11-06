@@ -44,7 +44,7 @@ resource "kubernetes_deployment" "itop" {
 
   spec {
     replicas = 2
-    
+
     strategy {
       type = "RollingUpdate"
       rolling_update {
@@ -80,7 +80,7 @@ resource "kubernetes_deployment" "itop" {
               name = kubernetes_secret.itop_db.metadata[0].name
             }
           }
-          
+
           env_from {
             config_map_ref {
               name = kubernetes_config_map.itop_config.metadata[0].name
